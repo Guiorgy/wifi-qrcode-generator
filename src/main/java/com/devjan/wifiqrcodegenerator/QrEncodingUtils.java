@@ -17,7 +17,7 @@ public class QrEncodingUtils {
   }
 
   /**
-   * Encode input string according to the rules of the wifi QR code payload
+   * Encode input string according to the rules of the Wi-Fi QR code payload
    * @param input input sting
    * @return encoded output string
    */

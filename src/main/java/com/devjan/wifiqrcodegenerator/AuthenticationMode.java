@@ -1,7 +1,7 @@
 package com.devjan.wifiqrcodegenerator;
 
 /**
- * Represents possible wifi authentication modes that are supported by the wifi QR code
+ * Represents possible Wi-Fi authentication modes that are supported by the Wi-Fi QR code
  *
  * @author Jan Bucher
  */

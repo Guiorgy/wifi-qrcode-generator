@@ -10,8 +10,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 public class QrEncodingUtilsTest {
   @Test
-  public void test_encodeString_abcd() {
-    assertEncodingOutput("abcd", "abcd");
+  public void test_encodeString_letters() {
+    String alphabet = "abcdefghijklmnopqrstuvwxyz";
+    assertEncodingOutput(alphabet, alphabet);
   }
 
   @Test

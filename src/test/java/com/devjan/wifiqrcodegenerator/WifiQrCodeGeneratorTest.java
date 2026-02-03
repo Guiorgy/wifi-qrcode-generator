@@ -9,19 +9,21 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Jan Bucher
  */
 public class WifiQrCodeGeneratorTest {
+  private final String samplePass = "samplePass";
+
   @Test
   public void test_getPayloadString_wpa() {
     // Arrange
     WifiQrCodeGenerator generator = new WifiQrCodeGenerator();
     generator.withAuthenticationMode(AuthenticationMode.WPA)
              .withSsid("someSuperNetwork")
-             .withPassword("asdfasdf");
-    
+             .withPassword(samplePass);
+
     // Act
     String qrPayload = generator.getPaylodString();
 
     // Assert
-    assertEquals("WIFI:T:WPA;S:someSuperNetwork;P:asdfasdf;;", qrPayload);
+    assertEquals("WIFI:T:WPA;S:someSuperNetwork;P:" + samplePass + ";;", qrPayload);
   }
 
   @Test
@@ -30,13 +32,13 @@ public class WifiQrCodeGeneratorTest {
     WifiQrCodeGenerator generator = new WifiQrCodeGenerator();
     generator.withAuthenticationMode("WEP")
              .withSsid("unsecureNetwork")
-             .withPassword("asdf");
+             .withPassword(samplePass);
 
     // Act
     String qrPayload = generator.getPaylodString();
 
     // Assert
-    assertEquals("WIFI:T:WEP;S:unsecureNetwork;P:asdf;;", qrPayload);
+    assertEquals("WIFI:T:WEP;S:unsecureNetwork;P:" + samplePass + ";;", qrPayload);
   }
 
   @Test
