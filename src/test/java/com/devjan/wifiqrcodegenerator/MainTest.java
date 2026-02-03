@@ -1,8 +1,11 @@
 package com.devjan.wifiqrcodegenerator;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.io.TempDir;
+import static org.junit.jupiter.api.Assertions.*;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
 import picocli.CommandLine;
 
 /**
@@ -12,9 +15,10 @@ import picocli.CommandLine;
  */
 public class MainTest {
   @Test
-  public void test_cli() {
+  public void test_cli(@TempDir Path tempDir) {
     // Arrange
-    String[] args = {"--ssid=test", "example.png"};
+    Path outputFile = tempDir.resolve("example.png");
+    String[] args = {"--ssid=test", outputFile.toString()};
 
     // Act
     CommandLine cmd = new CommandLine(new Main());
@@ -22,6 +26,7 @@ public class MainTest {
 
     // Assert
     assertEquals(0, exitCode);
+    assertTrue(Files.exists(outputFile));
   }
 
 }
