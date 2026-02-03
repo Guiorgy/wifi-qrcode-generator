@@ -1,6 +1,9 @@
 package com.devjan.wifiqrcodegenerator;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import picocli.CommandLine;
 
 /**
  * JUnit test for the class {@link Main}
@@ -9,15 +12,16 @@ import org.junit.Test;
  */
 public class MainTest {
   @Test
-  public void test_main() {
+  public void test_cli() {
     // Arrange
     String[] args = {"--ssid=test", "example.png"};
 
     // Act
-    Main.main(args);
+    CommandLine cmd = new CommandLine(new Main());
+    int exitCode = cmd.execute(args);
 
     // Assert
-    // -- nothing to assert at the moment...
+    assertEquals(0, exitCode);
   }
 
 }

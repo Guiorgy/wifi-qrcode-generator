@@ -1,7 +1,7 @@
 package com.devjan.wifiqrcodegenerator;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Unittest for the class {@link WifiQrCodeGenerator}
@@ -64,7 +64,7 @@ public class WifiQrCodeGeneratorTest {
     String result = generator.toString();
 
     // Assert
-    assertTrue("toString() should contain the network name", result.contains("openNetwork"));
+    assertTrue(result.contains("openNetwork"), "toString() should contain the network name");
   }
 
 }
