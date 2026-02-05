@@ -40,4 +40,4 @@ $ ./build/install/wifi-qrcode-generator/bin/wifi-qrcode-generator --ssid "SomeNe
 [+] QR code generated. Output: example.png
 ```
 
-Now you can print out the QR code and let others connect to your wifi without typing your 20-digit password into there phones :smiley:
+Now you can print out the QR code and let others connect to your wifi without typing your 20-digit password into their phones :smiley:

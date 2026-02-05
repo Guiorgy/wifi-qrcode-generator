@@ -1,7 +1,7 @@
 package com.devjan.wifiqrcodegenerator;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Unittest for the class {@link QrEncodingUtils}
@@ -10,8 +10,9 @@ import static org.junit.Assert.*;
  */
 public class QrEncodingUtilsTest {
   @Test
-  public void test_encodeString_abcd() {
-    assertEncodingOutput("abcd", "abcd");
+  public void test_encodeString_letters() {
+    String alphabet = "abcdefghijklmnopqrstuvwxyz";
+    assertEncodingOutput(alphabet, alphabet);
   }
 
   @Test

@@ -16,8 +16,8 @@ import com.google.zxing.qrcode.QRCodeWriter;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 
 /**
- * Generator for QR codes to connect to a wifi network.
- * For more details of the generation: https://github.com/zxing/zxing/wiki/Barcode-Contents (section "Wifi Network config")
+ * Generator for QR codes to connect to a Wi-Fi network.
+ * <a href="https://github.com/zxing/zxing/wiki/Barcode-Contents#wi-fi-network-config-android-ios-11">For more details of the generation</a>.
  *
  * @author Jan Bucher
  */
@@ -54,14 +54,12 @@ public class WifiQrCodeGenerator {
   }
 
   protected String getPaylodString() {
-    StringBuilder payloadBuilder = new StringBuilder();
-    payloadBuilder.append(QR_WIFI).append(SEPARATOR_VALUE)
-                  .append(QR_WIFI_AUTHENTICATION_TYP).append(SEPARATOR_VALUE).append(authenticationMode).append(SEPARATOR_FIELD)
-                  .append(QR_WIFI_SSID).append(SEPARATOR_VALUE).append(ssid).append(SEPARATOR_FIELD)
-                  .append(QR_WIFI_PASSWORD).append(SEPARATOR_VALUE).append(StringUtils.isNotEmpty(password) ? password : "").append(SEPARATOR_FIELD)
-                  // TODO: Hidden network config
-                  .append(SEPARATOR_FIELD);
-    return payloadBuilder.toString();
+      return QR_WIFI + SEPARATOR_VALUE +
+              QR_WIFI_AUTHENTICATION_TYP + SEPARATOR_VALUE + authenticationMode + SEPARATOR_FIELD +
+              QR_WIFI_SSID + SEPARATOR_VALUE + ssid + SEPARATOR_FIELD +
+              QR_WIFI_PASSWORD + SEPARATOR_VALUE + (StringUtils.isNotEmpty(password) ? password : "") + SEPARATOR_FIELD +
+              // TODO: Hidden network config
+              SEPARATOR_FIELD;
   }
 
   public WifiQrCodeGenerator withSsid(String ssid) {

@@ -46,12 +46,12 @@ public class Main implements Callable<Integer> {
   public Integer call() {
     System.out.println("[+] Generating QR code...");
 
-    WifiQrCodeGenerator generator = new WifiQrCodeGenerator();
-
-    generator.withSsid(ssid)
-             .withAuthenticationMode(authenticationMode)
-             .withPassword(password)
-             .toOutputFile(outputFile);
+    WifiQrCodeGenerator generator =
+      new WifiQrCodeGenerator()
+        .withSsid(ssid)
+        .withAuthenticationMode(authenticationMode)
+        .withPassword(password)
+        .toOutputFile(outputFile);
     if (verbose) {
       System.out.println("[.] Params: " + generator);
       System.out.println("[.] Raw QR Code Payload: " + generator.getPaylodString());

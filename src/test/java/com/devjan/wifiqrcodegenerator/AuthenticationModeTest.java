@@ -1,7 +1,7 @@
 package com.devjan.wifiqrcodegenerator;
 
-import static org.junit.Assert.*;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 /**
  * Unittest for {@link AuthenticationMode}
@@ -21,13 +21,16 @@ public class AuthenticationModeTest {
     assertEquals(AuthenticationMode.WPA, mode);
   }
 
-  @Test(expected=IllegalArgumentException.class)
+  @Test
   public void test_get_notExistingKey() {
     // arrange
     String key = "foobar";
 
     // act
-    AuthenticationMode.get(key);
+    assertThrows(
+      IllegalArgumentException.class,
+      () -> AuthenticationMode.get(key)
+    );
   }
 
 }
